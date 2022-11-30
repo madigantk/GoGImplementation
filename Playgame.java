@@ -1,5 +1,4 @@
 import java.util.Scanner;
-//change
 
 public class Playgame {
     public static void main(String args[]){
