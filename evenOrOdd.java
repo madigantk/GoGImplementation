@@ -19,7 +19,7 @@ public class evenOrOdd extends getInput {
         computerPoints = 0;
     }
 
-    public int game(){
+    public int run(){
         Scanner scnr = new Scanner(System.in);
         Random rand = new Random();
         System.out.println("Even and Odd Game:\nThe player will choose even or odd. You will remain even or odd for the whole game and cannot switch from throw to throw. Valid throws are integer values from 1 to 5. The user will also indicate the “best out of number”. This will be how many games are played to win. For example, If you choose 7, the first to win 4 throws wins the game. The 'best out of number' has to be odd.\n");
@@ -102,7 +102,7 @@ public class evenOrOdd extends getInput {
         }
 
     }
-
+/* 
     int getNum(){
 
     }
@@ -110,6 +110,6 @@ public class evenOrOdd extends getInput {
     int getString({
         
         
-    }
+    }*/
     
 }

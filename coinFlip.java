@@ -13,9 +13,17 @@ public class coinFlip{
 		String guess;				// Heads or Tails guess by player
 		String flip;				// Coin flip result
 		
-		boolean valid_guess = false;	// Detects valid guess
-		boolean valid_best_of = false;	// Detects valid series value
-		boolean flag = false; 
+		boolean valid_guess; 	// Detects valid guess
+		boolean valid_best_of;	// Detects valid series value
+		boolean flag;
+
+		coinFlip(){
+			valid_guess = false;
+			valid_best_of = false;
+			flag = false;
+		}
+
+		
 
 	public int run(){
 		

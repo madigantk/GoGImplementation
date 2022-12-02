@@ -37,14 +37,22 @@ public class Playgame {
                     //up++
                     break;
                 case 2:
-                    //flip the coin
+                    coinFlip game2 = new coinFlip();
+                    winner = game2.run();
+                    if (winner == 1){
+                        UP++;
+                    }
+                    else{
+                        CP++;
+                    }
+                    displayScoreboard(UP, CP);
                     break;
                 case 3:
                     //guess the number
                     break;
                 case 4:
-                    evenOrOdd game = new evenOrOdd();
-                    winner = game.game();
+                    evenOrOdd game4 = new evenOrOdd();
+                    winner = game4.run();
                     if (winner == 1){
                         UP++;
                     }
@@ -86,6 +94,7 @@ public class Playgame {
         else{
             System.out.println("Congratulations! You won the Game of Games!\n");
         }
+        scnr.close();
     }
 
 
