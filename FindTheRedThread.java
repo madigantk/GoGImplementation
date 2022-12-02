@@ -42,7 +42,9 @@ public class FindTheRedThread{
     int x = rand.nextInt(2);
     if(x == 0){
       System.out.println("Computer goes first");
-
+    }
+    else{
+      System.out.println("You go first")
     }
 
     while(WinnerFound = false){
@@ -69,17 +71,6 @@ public class FindTheRedThread{
 
     }
 
-
-
-
-
-
-
-
-
-    else{
-      System.out.println("You go first");
-    }
 
     return 0;
   }
