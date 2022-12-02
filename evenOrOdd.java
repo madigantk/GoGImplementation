@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class evenOrOdd {
+public class evenOrOdd extends getInput {
     int bestOutOf;
     
     //these two represent remainder when divided by 2. Ex if userChoice ==1, then that would be odd becasue oddNum%2 = 1
@@ -101,8 +101,15 @@ public class evenOrOdd {
             return 0;
         }
 
+    }
 
+    int getNum(){
 
+    }
+
+    int getString({
+        
+        
     }
     
 }
