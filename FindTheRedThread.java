@@ -8,11 +8,25 @@ public class FindTheRedThread{
   int PlayerScore;
   int ComputerScore;
   String[] PossibleColors = new String[]{"blue", "green", "yellow"};
-  boolean WinnerFound = false;
+  int WhosTurn;
+
   FindTheRedThread(){
     PlayerScore = 0;
     ComputerScore = 0;
   }
+
+
+  public void PrintSpools(){
+
+    System.out.println("Available spools: ");
+    for(int i = 0; i < Spools.length; i++){
+      if(Spools[i] != "Picked"){
+        System.out.printf("Spool S%d   ", i+1);
+      }
+    }
+  }
+
+
 
   public int game(){
     Scanner reader = new Scanner(System.in);
@@ -39,40 +53,84 @@ public class FindTheRedThread{
     }
 
 
-    int x = rand.nextInt(2);
-    if(x == 0){
+    WhosTurn = rand.nextInt(2);
+    if(WhosTurn == 0){
       System.out.println("Computer goes first");
     }
     else{
       System.out.println("You go first")
     }
 
-    while(WinnerFound = false){
-      System.out.println("It is the computer's turn");
-      System.out.println("Available spools: ");
-      for(int i = 0; i < Spools.length; i++){
-        if(Spools[i] != "Picked"){
-          System.out.printf("Spool %2f   ", i+1);
-        }
-      }
-
-
-      int CompPick = -1;                        //Making sure the computer chooses a spool that is available
-      for(int i = 0; i < SpoolsPerTurn; i++){
+    while(1==1){
+      if(WhosTurn = 0){
+        int CompCount = 0;
+        System.out.println("It is the computer's turn");
+        PrintSpools();
+        int CompPick = -1;                        //Making sure the computer chooses a spool that is available
         while(CompPick = -1){
           CompPick = rand.nextInt(20);
-          if(Spools[CompPick+1] == "Picked"){
+          if(Spools[CompPick+1] == "picked"){
             CompPick = -1;
           }
         }
+
+        System.out.printf("The computer picked spool %d%n", CompPick);
+        System.out.printf("The color of spool %d is %s%n", CompPick, Spools[CompPick]);
+        Spools[CompPick] = "picked";
+        CompCount++;
+        if(Spools[CompPick+1] == "red"){
+          System.out.println("Game Over. You lost against the computer. Better luck next time.");
+          return 0;
+        }
+        if(CompCount == SpoolsPerTurn){
+          WhosTurn = 1;
+        }
       }
+
+      else{                                   //Player's Turn
+        int PlayerCount = 0;
+        int PlayerPick = -1
+        System.out.println("It is your turn");
+        PrintSpools();
+        while(PlayerPick == -1){
+          try{
+            System.out.println("Pick a spool from the available options. Enter the integer of the spool you want to pick (1 for S1, 2 for S2, etc.)");
+            PlayerPick = reader.nextInt();
+            if(Spools[PlayerPick+1] == "picked"){
+              System.out.println("Error. You must pick a spool that is available (look at the display list of all available spools).");
+              PlayerPick = -1;
+            }
+          }
+          catch(Exception e){
+            System.out.println("Error. You must enter an integer. Try again.");
+          }
+        }
+        PlayerCount++;
+        System.out.printf("You picked spool S%d%n", PlayerPick);
+        System.out.printf("The color of spool S%d is %s%n", PlayerPick, Spools[PlayerPick]);
+        if(Spools[PlayerPick+1] == "red"){
+          System.out.println("Congratulations, you won!");
+          return 1;
+        }
+        if(PlayerCount == SpoolsPerTurn){
+          WhosTurn = 0;
+        }
+
+
+
+
+
+      }
+
+
+
+
 
 
 
     }
 
 
-    return 0;
   }
 
 }
