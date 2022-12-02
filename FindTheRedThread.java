@@ -100,7 +100,10 @@ public class FindTheRedThread{
           try{
             System.out.println("Pick a spool from the available options. Enter the integer of the spool you want to pick (1 for S1, 2 for S2, etc.)");
             PlayerPick = reader.nextInt();
-            if(Spools[PlayerPick-1] == "picked" || PlayerPick < 1 || PlayerPick > 20){
+            if(PlayerPick < 1 || PlayerPick > 20){
+              System.out.println("Error. You must pick within the range of the spools (integer cannot be less than 1 or greater than 20).");
+            }
+            if(Spools[PlayerPick-1] == "picked"){
               System.out.println("Error. You must pick a spool that is available (look at the display list of all available spools).");
               PlayerPick = -1;
             }
