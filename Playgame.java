@@ -27,12 +27,15 @@ public class Playgame extends getInput {
             //swtich board for that game user wants to play, 1=find the thimble. 2=coin flip. 3=guess the number. 4=even or odd. 5=find the red thread
             switch(choice){
                 case 1:
-                    //find the thimble
-                    //example
-                    // if(findthethimble() = 1)
-                    //cpp++
-                    //else
-                    //up++
+                    FindTheThimble game1 = new FindTheThimble();
+                    winner = game1.run();
+                    if (winner == 1){
+                        UP++;
+                    }
+                    else{
+                        CP++;
+                    }
+                    displayScoreboard(UP, CP);
                     break;
 
                 case 2:
