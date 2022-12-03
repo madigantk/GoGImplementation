@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class Playgame {
+public class Playgame extends getInput {
     public static void main(String args[]){
         int UP = 0; //user points
         int CP = 0; //computer points
-        int choice = 0;
-        String input;
+        int choice;
+        String tempString;
         Scanner scnr = new Scanner(System.in);
         boolean cont = true;
         int winner = 0; //used as return value from games. 1 if user wins, 0 if computer wins
@@ -16,16 +16,9 @@ public class Playgame {
         while (cont){
             System.out.println("Games:\n1. Find the Thimble\n2. Flip the coin\n3. Guess the Number\n4. Even and Odd\n5. Find the Red Thread\n");
             System.out.println("Pick a game to play! To choose a game, enter the corresponding integer with that game.\nChoice: ");
-            while (1==1){
-                input = scnr.nextLine();
-                if (input.charAt(0)<49 || input.charAt(0)> 53){
-                    System.out.println("inputut Invalid. You must enter an integer that corresponds to a game. Try again!");
-                    continue;
-                }
-                break;
-            }
 
-            choice = (int)input.charAt(0)- 48;
+            getInput playgame = new getInput(); 
+            choice = playgame.getNum(1,5);
 
             switch(choice){
                 case 1:
@@ -68,20 +61,9 @@ public class Playgame {
                     break;
             }
             System.out.println("Do you want to continue to play the Game of Games?\nEnter 'Y' for yes and 'N' if you want to quit");
-
-            while (1==1){
-                input = scnr.nextLine();
-                if (input.charAt(0) == 'Y' || input.charAt(0) == 'y'){
-                    break;
-                }
-                else if(input.charAt(0) == 'N' || input.charAt(0) == 'n' ){
-                    cont = false;
-                    break;
-                }
-                else{
-                    System.out.println("Invalid inputut. You must enter either 'Y' or 'N'\n");
-
-                }
+            tempString = playgame.getString("Y", "N");
+            if (tempString.equals("N")){
+                cont = false;
             }
         }
         displayScoreboard(UP, CP);
@@ -97,6 +79,24 @@ public class Playgame {
         scnr.close();
     }
 
+//gets inout till inout is number between x and y and then returns. x is lower bound and y is upper bound. both inclusive.
+int getNum(int x, int y){
+    Scanner scnr = new Scanner(System.in);
+    while (1==1){
+        input = scnr.nextLine();
+        if (input.charAt(0)>=(48+x) && input.charAt(0)<= (48+y)){
+            tempNum = (int) input.charAt(0) - 48;
+            break;
+        }
+        else{
+            System.out.println("Invalid choice. Please enter a number inbetween "+x+" and "+y+"\nInput number: ");
+        }
+    
+    }
+    scnr.close();
+    return tempNum;
+
+}
 
     private static void displayScoreboard(int up, int cp){
         System.out.println("User has won "+up+" games and lost "+cp+" games.\nComputer has won "+cp+" games and lost "+up+" games.\n");

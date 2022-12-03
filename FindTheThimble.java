@@ -27,6 +27,7 @@ public class FindTheThimble{
         }
 
         System.out.println("You will be the guesser throughout the game.");
+        return 1;
 
 
 
