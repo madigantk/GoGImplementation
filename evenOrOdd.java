@@ -20,14 +20,14 @@ public class evenOrOdd extends getInput {
 
     public int run(){
         Random rand = new Random();
-        System.out.println("Even and Odd Game:\nThe player will choose even or odd. You will remain even or odd for the whole game and cannot switch from throw to throw. Valid throws are integer values from 1 to 5. The user will also indicate the “best out of number”. This will be how many games are played to win. For example, If you choose 7, the first to win 4 throws wins the game. The 'best out of number' has to be odd.\n");
+        System.out.println("\nEven and Odd Game:\nThe player will choose even or odd. You will remain even or odd for the whole game and cannot switch from throw to throw. Valid throws are integer values from 1 to 5. The user will also indicate the “best out of number”. This will be how many games are played to win. For example, If you choose 7, the first to win 4 throws wins the game. The 'best out of number' has to be odd.\n");
         
         //choosing how many games to play
-        System.out.println("Pick a best out of number that will be played too. The number has to be an integer.\nBest out of number: \n");
+        System.out.println("Pick a best out of number that will be played too. The number has to be an integer.\nBest out of number:");
         bestOutOf = getBestOf();
 
         //choosing even or odd
-        System.out.println("Pick your choice of even or odd. Your choice will be the same for the whole game and you won’t be able to switch from throw to throw.\nEnter 'o' for odd or 'e' for even: ");
+        System.out.println("\nPick your choice of even or odd. Your choice will be the same for the whole game and you won’t be able to switch from throw to throw.\nEnter 'o' for odd or 'e' for even: ");
         tempString = getString("e", "o");
         if(tempString == "e"){
             userChoice = 0;
@@ -45,7 +45,7 @@ public class evenOrOdd extends getInput {
             computerThrow = 1 + rand.nextInt(5);
 
 
-            System.out.println("Your choice for this round is: "+userThrow+"\nThe computers choice for this round is: "+computerThrow);
+            System.out.println("\nYour choice for this round is: "+userThrow+"\nThe computers choice for this round is: "+computerThrow);
             if((userThrow + computerThrow)%2 == 0){
                 System.out.println("The throws combined is "+(userThrow+computerThrow)+" which is an even number.\n");
             }

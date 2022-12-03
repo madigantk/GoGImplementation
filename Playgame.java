@@ -99,7 +99,7 @@ int getNum(int x, int y){
 }
 
     private static void displayScoreboard(int up, int cp){
-        System.out.println("User has won "+up+" games and lost "+cp+" games.\nComputer has won "+cp+" games and lost "+up+" games.\n");
+        System.out.println("\nScoreboard:\nUser has won "+up+" games and lost "+cp+" games.\nComputer has won "+cp+" games and lost "+up+" games.\n");
 
     }
 }
