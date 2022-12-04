@@ -1,9 +1,11 @@
 //guess the number game
 import java.util.Scanner;
 
-public class Guess_the_number{
+public class Guess_the_number extends getInput{
+    
+    Guess_the_number(){}
 
-    public static void guess_the_number(){
+    public int run(){
 
         int lower_range=0;
         int upper_range=0;
@@ -90,7 +92,7 @@ public class Guess_the_number{
             }
             if (number == guess) {
                 System.out.println("Congratulations you won! you correctly guessed that the number was "+number);
-                //return 1;
+                return 1;
                 break;
             }
             else if (number != guess && i != tries - 1) {
@@ -101,13 +103,6 @@ public class Guess_the_number{
         }
             if (i == tries) {
                 System.out.println("Game Over. You lost agaist the computer. Better luck next time");
-                //return 0;
+                return 0;
         }
     }
-
-
-    public static void main(String arg[])
-    {
-         guess_the_number();
-    }
-}
