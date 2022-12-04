@@ -66,7 +66,7 @@ public class FindTheRedThread extends getInput {
         PrintSpools();
         while(CompPick == -1){                  ////Making sure the computer chooses a spool that is available
           CompPick = rand.nextInt(20);
-          if(Spools[CompPick-1] == "picked"){
+          if(Spools[CompPick] == "picked"){
             CompPick = -1;
           }
         }
@@ -91,22 +91,12 @@ public class FindTheRedThread extends getInput {
         PrintSpools();
         System.out.println();
         while(PlayerPick == -1){
-          try{
             System.out.println("Pick a spool from the available options. Enter the integer of the spool you want to pick (1 for S1, 2 for S2, etc.)");
-            PlayerPick = reader.nextInt();
-            if(PlayerPick < 1 || PlayerPick > 20){
-              System.out.println("Error. You must pick within the range of the spools (integer cannot be less than 1 or greater than 20).");
-            }
+            PlayerPick = getNum(1,20);
             if(Spools[PlayerPick-1] == "picked"){
               System.out.println("Error. You must pick a spool that is available (look at the display list of all available spools).");
               PlayerPick = -1;
             }
-          }
-          catch(Exception e){
-            System.out.println("Error. You must enter an integer. Try again.");
-            reader.next();
-            PlayerPick = -1;
-          }
         }
         PlayerCount++;
         System.out.printf("You picked spool %d%n", PlayerPick);
