@@ -14,7 +14,6 @@ public class coinFlip{
 		String flip;				// Coin flip result
 		
 		boolean valid_guess; 	// Detects valid guess
-		boolean valid_best_of;	// Detects valid series value
 		boolean flag;
 
 		coinFlip(){
@@ -36,28 +35,6 @@ public class coinFlip{
 						+ "If the player guesses correctly they get a point and if it’s incorrect, the computer earns a point.\n\n"
 						+ "Whoever has the most points after the agreed total games wins a point that will be added to their overall score board of Games of games.\n\n");
 
-		// ENTERING THE BEST-OF-NUMBER
-		do {
-
-			System.out.println("\nEnter the 'best out of number' you want to play –– this must be an odd integer. The player with the most points will be declared as the winner after playing this total number of games.\n");
-
-			try{
-
-				Scanner kb = new Scanner(System.in);
-				series = kb.nextInt();
-				if (series <= 0){
-					System.out.println("\nInvalid input. You must enter a positive integer.\n");
-				} else if (series % 2 == 0){
-					System.out.println("\nInvalid input. You must enter an odd number.\n");
-				} else{
-					valid_best_of = true;
-				}
-			} catch (InputMismatchException e){
-				System.out.println("\nInvalid input. You must enter an integer.\n");
-				valid_best_of = false;
-			}		
-			
-		} while(!valid_best_of);
 
 		min = getBestOf(series);
 
