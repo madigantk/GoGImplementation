@@ -5,17 +5,11 @@ public class FindTheRedThread extends getInput {
 
   int SpoolsPerTurn = 0;
   String[] Spools = new String[20];
-  int PlayerScore;
-  int ComputerScore;
   String[] PossibleColors = new String[]{"blue", "green", "yellow"};
   int WhosTurn;
-  int CompCount = 0;
-  int PlayerCount = 0;
 
 
   FindTheRedThread(){
-    PlayerScore = 0;
-    ComputerScore = 0;
   }
 
 
@@ -35,6 +29,8 @@ public class FindTheRedThread extends getInput {
   public int run(){
     Scanner reader = new Scanner(System.in);
     Random rand = new Random();
+    int CompCount = 0;
+    int PlayerCount = 0;
 
     for(int i = 0; i < Spools.length; i++){         //Assigning each spool a random color
       int RandomColor = rand.nextInt(3);
