@@ -1,5 +1,4 @@
 //guess the number game
-import java.util.Scanner;
 
 public class Guess_the_number extends getInput{
     
@@ -20,22 +19,15 @@ public class Guess_the_number extends getInput{
         System.out.println("the user can make at most 5 guesses. You will have the chosen number of guesses to correctly get the unknown number.");
         System.out.println(" ");
         System.out.println("---Enter the min number in the range the number must be an integer---");
-        
-        Scanner sl=new Scanner(System.in);
-        Scanner su=new Scanner(System.in);
+
 
         lower_range=getNum(-1000,1000);
         
         System.out.println("enter the maximum number in the range the number must be an integer");
 
 
-        upper_range=getNum(-1000,1000);
+        upper_range=getNum(lower_range,1000);
 
-        if(upper_range<lower_range){
-          System.out.println("Invalid input. The maximum number must be greater than the minimum number.");
-          System.out.println("enter the maximum number in the range—this must be larger than the minimum number you entered");
-          upper_range=su.nextInt();
-        }
 
         System.out.println("The range of number is from "+lower_range+" to "+upper_range);
         // System.out.println(lower_range+"= The minimum "+upper_range+"=the maximum");
@@ -43,24 +35,14 @@ public class Guess_the_number extends getInput{
         int number = (int)(((Math.random()*upper_range-lower_range))+lower_range+lower_range/2);
 
         
-        Scanner scanner=new Scanner(System.in);
-        Scanner sc = new Scanner(System.in);
+      
 
         System.out.println("Enter the number of guesses (this will be the number of attempts you have to guess the unknown number");
         System.out.println("You must enter a positive integer. The number of guesses cannot be more than half the number of values in the range.");
         
-        tries= getNum(-1000,1000);
+        tries= getNum(0,upper_range-lower_range);
 
-        if(tries>(upper_range-lower_range)/2){
-          System.out.println("this number of tries is not valid");
-          System.out.println("Enter a new number of tries");
-          tries=scanner.nextInt();
-        }
-        else if(tries<0){
-          System.out.println("Invalid input. The number must be a positive integer");
-          System.out.println("Enter a new number of tries");
-          tries=scanner.nextInt();
-        }
+        
         
         System.out.println("You will have "+tries+" attemps to guess the unknown number");
         System.out.println("You are the guesser. The computer will now choose a number");
@@ -69,40 +51,30 @@ public class Guess_the_number extends getInput{
         System.out.println("");
         System.out.println("Enter a guess for the unknown integer in range "+lower_range +" to "+ upper_range);
 
+        int attempts=tries;
         for (i = 0; i < tries; i++) {
-            int attempts=tries;
+            
 
             guess =getNum(lower_range,upper_range);
             
             System.out.println("You guessed "+guess);
             
-            if(guess>upper_range-1){
-              System.out.println("the guess is outside of range ");
-              //attempts=attempts-1;
-              //System.out.println("Your guess was incorrect."+guess+" was not the number. Try again, you have"+attempts+"more tries");
-              System.out.println("Enter a guess for the unknown integer in range "+lower_range +" to "+ upper_range);
-              guess = sc.nextInt();
-            }
-            else if(guess<lower_range){
-              System.out.println("the guess is outside of range ");
-              //attempts=attempts-1;
-              //System.out.println("Your guess was incorrect."+guess+" was not the number. Try again, you have"+attempts+"more tries");
-              System.out.println("Enter a guess for the unknown integer in range "+lower_range +" to "+ upper_range);
-              guess = sc.nextInt();
-            }
+            
             if (number == guess) {
                 System.out.println("Congratulations you won! you correctly guessed that the number was "+number);
                 return 1;
-                break;
+                
             }
             else if (number != guess && i != tries - 1) {
-                System.out.println("Your guess was incorrect. "+guess+" was not the number. Try again, you have "+attempts+" more tries");
-                attempts=attempts-1;
-                System.out.println("attemps="+attempts);
+              attempts=attempts-1;
+              System.out.println("Your guess was incorrect. "+guess+" was not the number. Try again, you have "+attempts+" more tries");
+
+              System.out.println("attemps="+attempts);
             }
         }
-            if (i == tries) {
-                System.out.println("Game Over. You lost agaist the computer. Better luck next time");
-                return 0;
-        }
+            
+              System.out.println("Game Over. You lost agaist the computer. Better luck next time");
+              return 0;
+        
     }
+  }
