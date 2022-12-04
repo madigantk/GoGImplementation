@@ -1,16 +1,24 @@
 //guess the number game
 
 public class Guess_the_number extends getInput{
+      int lower_range;
+      int upper_range;
+      int tries;
+      int guess;
+      int i;
+  
     
-    Guess_the_number(){}
+    Guess_the_number(){
+      lower_range=0;
+      upper_range=0;
+      tries=0;
+      guess=0;
+      i=0;
+    }
 
     public int run(){
 
-        int lower_range=0;
-        int upper_range=0;
-        int tries=0;
-        int guess=0;
-        int i=0;
+        
 
         System.out.println("Guess the Number:");
         System.out.println("You will specify a range of numbers and how many chances you have to guess. You will be playing against the computer; therefore");
