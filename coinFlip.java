@@ -47,6 +47,8 @@ public class coinFlip extends getInput{
 
 			// EVALUATING THE GUESS AND THE COIN FLIP RESULT //
 			evaluate(flip, guess);
+			
+			// SETTING THE FLAG ONCE EITHER THE USER OR COMPUTER REACHES THE MINIMUM AMOUNT OF WINS
 			if(UP == min || CP == min){
 				flag = true;
 			}
