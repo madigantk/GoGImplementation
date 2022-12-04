@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.Random;
-import java.util.InputMismatchException;
 
 public class coinFlip extends getInput{
 
