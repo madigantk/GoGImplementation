@@ -67,9 +67,17 @@ public class Playgame extends getInput {
                     break;
 
                 case 5:
-                    //find the red thread
-                    break;
+                    FindTheRedThread game5 = new FindTheRedThread();
+                    winner = game5.run();
 
+                    if (winner == 1){
+                        UP++;
+                    }
+                    else{
+                        CP++;
+                    }
+                    displayScoreboard(UP, CP);
+                    break;
                 default:
                     break;
             }

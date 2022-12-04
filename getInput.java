@@ -7,43 +7,47 @@ import java.util.Scanner;
 public class getInput {
     String input;
     int tempNum;
-    
-
 
     //gets input till input is a positive odd integer that is used for how many rounds of each game to play. Then returns
     int getBestOf(){
         Scanner scnr = new Scanner(System.in);
-        while (1==1){
-            input = scnr.nextLine();
-
-            //checks that input is an int, is odd, and it larger than 0
-            if (input.charAt(0) == (int) input.charAt(0) && ((int)input.charAt(0)-48) % 2 == 1 && ((int)input.charAt(0)-48) > 0){
-                tempNum = (int) input.charAt(0) - 48;
-                break;
+        while(1==1){
+            try{
+                tempNum = scnr.nextInt();
+                if (tempNum > 0 && tempNum% 2 == 1 ){
+                    return tempNum;
+                }
+                else{
+                    System.out.println("Invalid choice. Please enter a positive odd number.\nInput number: ");
+                }
             }
-            else{
-                System.out.println("Invalid choice. Please enter a positive odd number\nBest out of number: ");
+            catch(Exception e){
+                System.out.println("Invalid choice. Please enter positive odd number\nInput number: ");
+                scnr.next();
             }
         }
-        return tempNum;
+        
     }
 
     //gets input till input is number between x and y and then returns. x is lower bound and y is upper bound. both inclusive.
     int getNum(int x, int y){
         Scanner scnr = new Scanner(System.in);
-        while (1==1){
-            input = scnr.nextLine();
-
-            //checks the input is greater than or equal to x and less than or equal to y
-            if (input.charAt(0)>=(48+x) && input.charAt(0)<= (48+y)){
-                tempNum = (int) input.charAt(0) - 48;
-                break;
+        
+        while(1==1){
+            try{
+                tempNum = scnr.nextInt();
+                if (tempNum>= x && tempNum <= y){
+                    return tempNum;
+                }
+                else{
+                    System.out.println("Invalid choice. Please enter a number inbetween "+x+" and "+y+"\nInput number: ");
+                }
             }
-            else{
+            catch(Exception e){
                 System.out.println("Invalid choice. Please enter a number inbetween "+x+" and "+y+"\nInput number: ");
+                scnr.next();
             }
         }
-        return tempNum;
 
     }
     
