@@ -2,27 +2,17 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.InputMismatchException;
 
-public class coinFlip{
+public class coinFlip extends getInput{
 
 		int UP;						// User Points (wins)
 		int CP;						// Computer Points (losses)
-		int series;					// best of value
 		int min;					// Minimum needed wins
 		int gog_score;				// Returns if User wins series
 		
 		String guess;				// Heads or Tails guess by player
 		String flip;				// Coin flip result
 		
-		boolean valid_guess; 	// Detects valid guess
-		boolean flag;
-
-		coinFlip(){
-			valid_guess = false;
-			valid_best_of = false;
-			flag = false;
-		}
-
-		
+		boolean flag = false; 
 
 	public int run(){
 		
@@ -35,52 +25,36 @@ public class coinFlip{
 						+ "If the player guesses correctly they get a point and if it’s incorrect, the computer earns a point.\n\n"
 						+ "Whoever has the most points after the agreed total games wins a point that will be added to their overall score board of Games of games.\n\n");
 
-
-		min = getBestOf(series);
+		System.out.println("\nEnter the 'best out of number' you want to play –– this must be an odd integer. The player with the most points will be declared as the winner after playing this total number of games.\n");
+		min = bestOfMin(getBestOf());
 
 		System.out.println("\nYou will be the guesser throughout the game.");
-
+				
 		while(!flag){
 			
-			Scanner kb = new Scanner(System.in);
 			System.out.println("\nEnter your guess. Enter ‘heads’ to guess the coin will land on heads, or ‘tails’ to guess the coin will land on tails.\n");
-			guess = kb.next();
-			valid_guess = false;
+			guess = getString("heads", "tails");
 
-			while(!valid_guess){				
-				if (guess.equalsIgnoreCase("heads") || guess.equalsIgnoreCase("tails")){
-					valid_guess = true;
-				} else {
-					System.out.println("\nInvalid input. You must enter 'heads' or 'tails'.\n");
-					break;
-				}
-			}
-
-			if(valid_guess){
-				System.out.println("You have guessed " + guess + ".\n");
-				System.out.println("The computer flips the coin.\n");
-
-				flip = flipCoin();
-
-				System.out.println("The coin landed on " + flip + ".\n");
-
-				evaluate(flip, guess);
-
-				if(UP == min || CP == min){
-					flag = true;
-				}
-			}
+			System.out.println("You have guessed " + guess + ".\n");
+			System.out.println("Flipping the coin....\n");
 			
+			flip = flipCoin();
+
+			System.out.println("The coin landed on " + flip + ".\n");
+
+			evaluate(flip, guess);
+			if(UP == min || CP == min){
+				flag = true;
+			}
 		}
 
 		conclusion();
 		return gog_score;
-	}
+		}
 
 	public int bestOfMin(int a){
 		int out = ((a/2)+1);
-		return out;
-	}
+		return out;}
 
 	public void evaluate(String f, String g){
 		if(f.equalsIgnoreCase(g)){
@@ -91,8 +65,7 @@ public class coinFlip{
 			System.out.println("Incorrect guess, the coin landed on " + f + ". The computer earned a point.");
 			CP++;
 			//System.out.println(CP + " computer wins.");
-		}
-	}
+		}}
 
 	public void conclusion(){
 		if(UP > CP){
@@ -101,8 +74,7 @@ public class coinFlip{
 		} else {
 			System.out.println("\nThe computer won, better luck next time.\n");
 			gog_score = 0;
-		}
-	}
+		}}
 
 	public String flipCoin(){
 		Random rand = new Random();
@@ -122,6 +94,5 @@ public class coinFlip{
 				break;
 		}
 
-		return buffer;
-	}
+		return buffer;}
 }
