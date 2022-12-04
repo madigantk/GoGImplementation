@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class evenOrOdd extends getInput {
     int bestOutOf; // how many rounds to play
-    
+
     //these two represent remainder when divided by 2. Ex if userChoice ==1, then that would be odd becasue oddNum%2 = 1
     int userChoice;
     int computerChoice;
@@ -28,7 +28,7 @@ public class evenOrOdd extends getInput {
     public int run(){
         Random rand = new Random();
         System.out.println("\nEven and Odd Game:\nThe player will choose even or odd. You will remain even or odd for the whole game and cannot switch from throw to throw. Valid throws are integer values from 1 to 5. The user will also indicate the “best out of number”. This will be how many games are played to win. For example, If you choose 7, the first to win 4 throws wins the game. The 'best out of number' has to be odd.\n");
-        
+
         //choosing how many games to play
         System.out.println("Pick a best out of number that will be played too. The number has to be an integer.\nBest out of number:");
         bestOutOf = getBestOf();
@@ -54,7 +54,7 @@ public class evenOrOdd extends getInput {
             System.out.println("\nPick an integer between 1 and 5. This is your throw for the round: ");
             userThrow = getNum(1, 5);
             computerThrow = 1 + rand.nextInt(5);
-            System.out.println("\nYour choice for this round is: "+userThrow+"\nThe computers choice for this round is: "+computerThrow);s
+            System.out.println("\nYour choice for this round is: "+userThrow+"\nThe computers choice for this round is: "+computerThrow);
 
             //sees if throws combined are even or odd
             if((userThrow + computerThrow)%2 == 0){
@@ -64,7 +64,7 @@ public class evenOrOdd extends getInput {
                 System.out.println("The throws combined is "+(userThrow+computerThrow)+" which is an odd number.\n");
             }
 
-            //checks who won the round 
+            //checks who won the round
             if((userThrow + computerThrow)%2 == userChoice){
                 System.out.println("You won this round!");
                 userPoints++;
@@ -89,5 +89,5 @@ public class evenOrOdd extends getInput {
         }
 
     }
-    
+
 }
