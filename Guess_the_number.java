@@ -1,11 +1,12 @@
-//guess the number game
-
+/*
+ * Guess the number game
+ */
 public class Guess_the_number extends getInput{
-      int lower_range;
-      int upper_range;
-      int tries;
-      int guess;
-      int i;
+      int lower_range;   //minimum number in the range
+      int upper_range;   //maximum number in the range
+      int tries;         //number or tries the user wants
+      int guess;        //guess of the user
+      int i;            
   
     
     Guess_the_number(){
@@ -29,18 +30,18 @@ public class Guess_the_number extends getInput{
         System.out.println("---Enter the min number in the range the number must be an integer---");
 
 
-        lower_range=getNum(-1000,1000);
+        lower_range=getNum(-1000,1000);         //gets the input from the user using the getNum() method
         
         System.out.println("enter the maximum number in the range the number must be an integer");
 
 
-        upper_range=getNum(lower_range,1000);
+        upper_range=getNum(lower_range,1000); //gets the input for max range using the getNum() method
 
 
         System.out.println("The range of number is from "+lower_range+" to "+upper_range);
         // System.out.println(lower_range+"= The minimum "+upper_range+"=the maximum");
         
-        int number = (int)(((Math.random()*upper_range-lower_range))+lower_range+lower_range/2);
+        int number = (int)(((Math.random()*upper_range-lower_range))+lower_range+lower_range/2);      //generates a random number using Math/random(the number is between the max and min range)
 
         
       
@@ -48,7 +49,7 @@ public class Guess_the_number extends getInput{
         System.out.println("Enter the number of guesses (this will be the number of attempts you have to guess the unknown number");
         System.out.println("You must enter a positive integer. The number of guesses cannot be more than half the number of values in the range.");
         
-        tries= getNum(0,upper_range-lower_range);
+        tries= getNum(1,upper_range-lower_range/2);  // tries is equal to the half the range values
 
         
         
@@ -60,20 +61,20 @@ public class Guess_the_number extends getInput{
         System.out.println("Enter a guess for the unknown integer in range "+lower_range +" to "+ upper_range);
 
         int attempts=tries;
-        for (i = 0; i < tries; i++) {
+        for (i = 0; i < tries; i++) {           // Will traverse until user is out of tries
             
 
-            guess =getNum(lower_range,upper_range);
+            guess =getNum(lower_range,upper_range);               //get input with getNum() method
             
             System.out.println("You guessed "+guess);
             
             
-            if (number == guess) {
+            if (number == guess) {                    //checks if the number is equal to the number to guess 
                 System.out.println("Congratulations you won! you correctly guessed that the number was "+number);
-                return 1;
+                return 1;           //if user wins the program will return 1
                 
             }
-            else if (number != guess && i != tries - 1) {
+            else if (number != guess && i != tries - 1) {               //checks if the guess is not equal and if the user still has tries
               attempts=attempts-1;
               System.out.println("Your guess was incorrect. "+guess+" was not the number. Try again, you have "+attempts+" more tries");
 
@@ -82,7 +83,7 @@ public class Guess_the_number extends getInput{
         }
             
               System.out.println("Game Over. You lost agaist the computer. Better luck next time");
-              return 0;
+              return 0;             //if computer wins the program will return 0
         
     }
   }
