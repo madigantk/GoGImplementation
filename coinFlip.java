@@ -59,7 +59,7 @@ public class coinFlip{
 			
 		} while(!valid_best_of);
 
-		min = bestOfMin(series);
+		min = getBestOf(series);
 
 		System.out.println("\nYou will be the guesser throughout the game.");
 
