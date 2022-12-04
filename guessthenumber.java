@@ -1,9 +1,11 @@
 //guess the number game
 import java.util.Scanner;
 
-public class Guess_the_number{
+public class Guess_the_number extends getInput{
+    
+    Guess_the_number(){}
 
-    public static void guess_the_number(){
+    public int run(){
 
         int lower_range=0;
         int upper_range=0;
@@ -22,12 +24,12 @@ public class Guess_the_number{
         Scanner sl=new Scanner(System.in);
         Scanner su=new Scanner(System.in);
 
-        lower_range=sl.nextInt();
+        lower_range=getNum(-1000,1000);
         
         System.out.println("enter the maximum number in the range the number must be an integer");
 
 
-        upper_range=su.nextInt();
+        upper_range=getNum(-1000,1000);
 
         if(upper_range<lower_range){
           System.out.println("Invalid input. The maximum number must be greater than the minimum number.");
@@ -47,7 +49,7 @@ public class Guess_the_number{
         System.out.println("Enter the number of guesses (this will be the number of attempts you have to guess the unknown number");
         System.out.println("You must enter a positive integer. The number of guesses cannot be more than half the number of values in the range.");
         
-        tries= scanner.nextInt();
+        tries= getNum(-1000,1000);
 
         if(tries>(upper_range-lower_range)/2){
           System.out.println("this number of tries is not valid");
@@ -70,7 +72,7 @@ public class Guess_the_number{
         for (i = 0; i < tries; i++) {
             int attempts=tries;
 
-            guess = sc.nextInt();
+            guess =getNum(lower_range,upper_range);
             
             System.out.println("You guessed "+guess);
             
@@ -90,7 +92,7 @@ public class Guess_the_number{
             }
             if (number == guess) {
                 System.out.println("Congratulations you won! you correctly guessed that the number was "+number);
-                //return 1;
+                return 1;
                 break;
             }
             else if (number != guess && i != tries - 1) {
@@ -101,13 +103,6 @@ public class Guess_the_number{
         }
             if (i == tries) {
                 System.out.println("Game Over. You lost agaist the computer. Better luck next time");
-                //return 0;
+                return 0;
         }
     }
-
-
-    public static void main(String arg[])
-    {
-         guess_the_number();
-    }
-}

@@ -51,7 +51,15 @@ public class Playgame extends getInput {
                     break;
 
                 case 3:
-                    //guess the number
+                    Guess_the_number game3 = new Guess_the_number();
+                    winner = game3.run();
+                    if (winner == 1){
+                        UP++;
+                    }
+                    else{
+                        CP++;
+                    }
+                    displayScoreboard(UP, CP);
                     break;
 
                 case 4:
