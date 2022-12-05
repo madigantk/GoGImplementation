@@ -51,7 +51,11 @@ public class Guess_the_number extends getInput{
         
         tries= getNum(1,upper_range-lower_range/2);  // tries is equal to the half the range values
 
-        
+        if (tries>upper_range-lower_range/2){
+              System.out.print("this number of tries is too big enter a valid input");
+              System.out.println("You must enter a positive integer. The number of guesses cannot be more than half the number of values in the range.");
+              tries= getNum(1,upper_range-lower_range/2);
+        }
         
         System.out.println("You will have "+tries+" attemps to guess the unknown number");
         System.out.println("You are the guesser. The computer will now choose a number");
