@@ -65,7 +65,7 @@ public class evenOrOdd extends getInput {
             }
 
             //checks who won the round
-            if((userThrow + computerThrow)%2 == userChoice){
+            if((userThrow + computerThrow)%2 == computerChoice){
                 System.out.println("You won this round!");
                 userPoints++;
             }
